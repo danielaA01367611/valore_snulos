@@ -42,3 +42,5 @@ valores_nulos=df.isnull().sum()
 df['panaderia'] =df['panaderia'].fillna(0)
 valores_nulos=df.isnull().sum()
 print(valores_nulos)
+
+df.to_csv('Ventas_totales_limpio.csv')
