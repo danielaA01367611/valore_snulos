@@ -9,9 +9,10 @@ df['FECHA_CANCELA'] =df['FECHA_CANCELA'].fillna(method='ffill')
 valores_nulos=df.isnull().sum()
 #print(valores_nulos)
 
-df['FECHA_CANCELA'] =df['FECHA_CANCELA'].fillna(method='ffill')
+df['FECHA_CANCELA'] =df['FECHA_CANCELA'].fillna(method='bfill')
 valores_nulos=df.isnull().sum()
 #print(valores_nulos)
+
 
 df['CVE_VEND'] = df['CVE_VEND'].fillna(round(df['CVE_VEND'].mean(),1))
 valores_nulos=df.isnull().sum()
@@ -19,4 +20,10 @@ valores_nulos=df.isnull().sum()
 
 df['CVE_PEDI'] =df['CVE_PEDI'].fillna(method='ffill')
 valores_nulos=df.isnull().sum()
+#print(valores_nulos)
+
+df['DOC_ANT'] =df['DOC_ANT'].fillna(method='bfill')
+valores_nulos=df.isnull().sum()
 print(valores_nulos)
+
+df.to_csv('devoluciones_limpio.csv')
